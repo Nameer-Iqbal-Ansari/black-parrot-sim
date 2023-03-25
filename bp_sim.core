@@ -1,0 +1,586 @@
+CAPI=2:
+name: ::bp_sim:0.1
+description: Black parrot's simulation core file
+
+filesets:
+  black_parrot:
+    files:
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_buffer_queue.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_pkg.v
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_non_blocking_pkg.v
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_non_blocking_miss_fifo.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_tbuf.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_to_test_dram_tx.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_decode.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_to_axi_rx.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_to_test_dram.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_dma_to_wormhole.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_non_blocking_stat_mem.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_to_axi_tx.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_dma.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_non_blocking_tag_mem.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_to_axi.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache.vh: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_miss.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_non_blocking_tl_stage.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_to_dram_ctrl_rx.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_nonsynth_cache_axe_tracer.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_non_blocking_data_mem.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_non_blocking.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_to_dram_ctrl_tx.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_wormhole_to_cache_dma_fanout.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_non_blocking_decode.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_non_blocking.vh: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_to_dram_ctrl.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_non_blocking_dma.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_to_test_dram_rx_reorder.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_non_blocking_mhu.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_sbuf.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_to_test_dram_rx.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_tag/bsg_tag_pkg.v
+      - black-parrot/external/basejump_stl/bsg_clk_gen/bsg_clk_gen.vh: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_1_to_n_tagged_fifo_shared.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_fifo_1r1w_large.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_flow_counter.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_1_to_n_tagged_fifo.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_fifo_1r1w_narrowed.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_make_2D_array.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_scatter_gather.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_1_to_n_tagged.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_fifo_1r1w_pseudo_large.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_one_fifo.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_serial_in_parallel_out_dynamic.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_8b10b_decode_comb.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_fifo_1r1w_small_credit_on_input.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_parallel_in_serial_out_dynamic.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_serial_in_parallel_out_full.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_8b10b_encode_comb.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_fifo_1r1w_small_hardened.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_parallel_in_serial_out_passthrough.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_serial_in_parallel_out_passthrough.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_8b10b_shift_decoder.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_fifo_1r1w_small_unhardened.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_parallel_in_serial_out.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_serial_in_parallel_out.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_channel_narrow.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_fifo_1r1w_small.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_permute_box.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_shift_reg.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_channel_tunnel_in.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_fifo_1rw_large.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_ready_to_credit_flow_converter.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_sort_4.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_channel_tunnel_out.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_fifo_bypass.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_relay_fifo.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_sort_stable.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_channel_tunnel.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_fifo_reorder.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_round_robin_1_to_n.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_two_buncher.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_channel_tunnel_wormhole.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_fifo_shift_datapath.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_round_robin_2_to_2.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_two_fifo.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_compare_and_swap.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_fifo_tracker.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_round_robin_fifo_to_fifo.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_credit_to_token.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_flatten_2D_array.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_round_robin_n_to_1.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_fifo_1r1w_large_banked.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_flow_convert.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dataflow/bsg_sbox.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dmc/bsg_dmc_clk_rst_gen.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dmc/bsg_dmc_controller.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dmc/bsg_dmc_phy.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dmc/bsg_dmc_pkg.v
+      - black-parrot/external/basejump_stl/bsg_dmc/bsg_dmc.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_dmc/bsg_dmc.vh: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_1r1w_sync.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_1rw_sync_synth.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_3r1w.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_cam_1r1w_replacement.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_1r1w_synth.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_1rw_sync.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_banked_crossbar.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_cam_1r1w_sync_unmanaged.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_1r1w.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_2r1w_sync_synth.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_cam_1r1w_sync.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_1rw_sync_banked.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_2r1w_sync.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_cam_1r1w_tag_array.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_1rw_sync_mask_write_bit_banked.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_2r1w_synth.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_multiport_latch.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_cam_1r1w_unmanaged.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_1rw_sync_mask_write_bit_from_1r1w.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_2r1w.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_multiport_latch_write_banked_bypassing_sync.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_cam_1r1w.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_1rw_sync_mask_write_bit_segmented.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_2rw_sync_mask_write_bit_synth.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_multiport_latch_write_banked_bypassing.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_1r1w_one_hot.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_1rw_sync_mask_write_bit_synth.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_2rw_sync_mask_write_bit.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_multiport.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_1r1w_sync_banked.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_1rw_sync_mask_write_bit.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_2rw_sync_mask_write_byte_synth.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_nonsynth_mem_1r1w_sync_dma.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_1r1w_sync_mask_write_bit_synth.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_1rw_sync_mask_write_byte_banked.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_2rw_sync_mask_write_byte.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_nonsynth_mem_1r1w_sync_mask_write_byte_dma.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_1r1w_sync_mask_write_bit.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_1rw_sync_mask_write_byte_segmented.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_2rw_sync_synth.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_nonsynth_mem_1rw_sync_assoc.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_1r1w_sync_mask_write_byte_synth.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_1rw_sync_mask_write_byte_synth.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_2rw_sync.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_nonsynth_mem_1rw_sync_mask_write_byte_assoc.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_1r1w_sync_mask_write_byte.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_1rw_sync_mask_write_byte.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_3r1w_sync_synth.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_nonsynth_mem_1rw_sync_mask_write_byte_dma.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_1r1w_sync_mask_write_var.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_1rw_sync_mask_write_var.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_3r1w_sync.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_1r1w_sync_synth.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_1rw_sync_segmented.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_mem/bsg_mem_3r1w_synth.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_defines.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_abs.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_counter_set_down.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_dlatch.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_lru_pseudo_tree_encode.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_reduce.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_adder_cin.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_counter_set_en.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_edge_detect.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_mul/bsg_mul_booth_4_block_rep.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_mul/bsg_mul_booth_4_block.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_mul/bsg_mul_comp42_rep.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_mul/bsg_mul_comp42.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_rotate_left.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_adder_one_hot.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_counter_up_down.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_encode_one_hot.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_mul_add_unsigned.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_rotate_right.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_adder_ripple_carry.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_counter_up_down_variable.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_expand_bitmask.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_mul_array_row.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_and.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_counting_leading_zeros.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_gray_to_binary.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_mul_array.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_round_robin_arb.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_arb_fixed.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_crossbar_control_basic_o_by_i.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_hash_bank_reverse.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_mul_pipelined.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_scan.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_arb_round_robin.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_crossbar_control_locking_o_by_i.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_hash_bank.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_mul_synth.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_scheduler_dataflow.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_array_concentrate_static.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_crossbar_o_by_i.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_icg_neg.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_mul.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_sparse_to_dense_boolean.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_array_reverse.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_cycle_counter.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_icg_pos.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_mux2_gatestack.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_strobe.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_binary_plus_one_to_gray.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_decode.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_idiv_iterative_controller.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_mux_bitwise.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_swap.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_buf_ctrl.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_decode_with_v.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_idiv_iterative.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_mux_butterfly.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_thermometer_count.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_buf.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_id_pool_dealloc_alloc_one_hot.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_muxi2_gatestack.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_tiehi.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_circular_ptr.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_dff_async_reset.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_id_pool.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_mux_one_hot.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_tielo.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_clkbuf.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_dff_chain.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_imul_iterative.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_mux_segmented.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_transpose_reduce.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_clkgate_optional.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_dff_en_bypass.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_inv.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_mux.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_transpose.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_concentrate_static.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_dff_en.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_latch.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_nand.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_unconcentrate_static.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_counter_clear_up_one_hot.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_dff_gatestack.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_less_than.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_nor2.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_wait_after_reset.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_counter_clear_up.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_dff_negedge_reset.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_level_shift_up_down_sink.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_nor3.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_wait_cycles.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_counter_clock_downsample.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_dff_reset_en_bypass.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_level_shift_up_down_source.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_pg_tree.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_xnor.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_counter_dynamic_limit_en.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_dff_reset_en.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_lfsr.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_popcount.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_xor.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_counter_dynamic_limit.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_dff_reset_set_clear.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_locking_arb_fixed.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_priority_encode_one_hot_out.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_counter_overflow_en.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_dff_reset.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_lru_pseudo_tree_backup.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_priority_encode.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_counter_overflow_set_en.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_dff.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_lru_pseudo_tree_decode.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_misc/bsg_reduce_segmented.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_test/bsg_nonsynth_delay_line.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_test/bsg_nonsynth_dpi_to_fifo.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_test/bsg_nonsynth_reset_gen.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_test/test_assembler_defines.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_test/bsg_dramsim3_pkg.v
+      - black-parrot/external/basejump_stl/bsg_test/bsg_nonsynth_dpi_from_fifo.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_test/bsg_nonsynth_dramsim3_map.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_test/bsg_nonsynth_test_rom.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_test/test_bsg_clock_params.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_test/bsg_dramsim3.vh: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_test/bsg_nonsynth_dramsim3.svh: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_test/bsg_nonsynth_triwire.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_test/test_bsg_data_gen.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_test/bsg_nonsynth_ascii_writer.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_test/bsg_nonsynth_dpi_clock_gen.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_test/bsg_nonsynth_dpi_gpio.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_test/bsg_nonsynth_dramsim3_unmap.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_test/bsg_nonsynth_val_watcher_1p.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_test/bsg_nonsynth_axi_mem.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_test/bsg_nonsynth_dramsim3.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_test/bsg_nonsynth_clock_gen_plusarg.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_test/bsg_nonsynth_dpi_cycle_counter.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_test/bsg_nonsynth_ramulator_hbm.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_test/bsg_trace_replay.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_test/bsg_nonsynth_clock_gen.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_test/bsg_nonsynth_dpi_rom.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_test/bsg_nonsynth_random_gen.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_noc/bsg_mesh_router_pkg.v
+      - black-parrot/external/basejump_stl/bsg_noc/bsg_noc_pkg.v
+      - black-parrot/external/basejump_stl/bsg_noc/bsg_barrier.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_noc/bsg_mesh_stitch.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_noc/bsg_noc_repeater_node.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_noc/bsg_wormhole_concentrator.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_noc/bsg_wormhole_router_input_control.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_noc/bsg_mesh_router_buffered.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_noc/bsg_ready_and_link_async_to_wormhole.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_noc/bsg_wormhole_router_adapter_in.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_noc/bsg_wormhole_router_output_control.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_noc/bsg_mesh_router_decoder_dor.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_noc/bsg_mesh_to_ring_stitch.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_noc/bsg_router_crossbar_o_by_i.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_noc/bsg_wormhole_router_adapter_out.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_noc/bsg_wormhole_router_pkg.v
+      - black-parrot/external/basejump_stl/bsg_noc/bsg_noc_links.vh: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_noc/bsg_wormhole_concentrator_in.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_noc/bsg_wormhole_router_adapter.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_noc/bsg_wormhole_router.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_noc/bsg_mesh_router.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_noc/bsg_wormhole_concentrator_out.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_noc/bsg_wormhole_router_decoder_dor.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_noc/bsg_wormhole_router.vh: {is_include_file: true}
+      - black-parrot/external/HardFloat/source/HardFloat_localFuncs.vi: {is_include_file: true}
+      - black-parrot/external/HardFloat/source/bsg_hardfloat_pkg.v
+      - black-parrot/external/HardFloat/source/HardFloat_consts.vi: {is_include_file: true}
+      - black-parrot/external/HardFloat/source/RISCV/HardFloat_specialize.vi: {is_include_file: true}
+      - black-parrot/external/HardFloat/source/addRecFN.v
+      - black-parrot/external/HardFloat/source/compareRecFN.v
+      - black-parrot/external/HardFloat/source/divSqrtRecFN_small.v
+      - black-parrot/external/HardFloat/source/fNToRecFN.v
+      - black-parrot/external/HardFloat/source/HardFloat_primitives.v
+      - black-parrot/external/HardFloat/source/HardFloat_rawFN.v
+      - black-parrot/external/HardFloat/source/iNToRecFN.v
+      - black-parrot/external/HardFloat/source/isSigNaNRecFN.v
+      - black-parrot/external/HardFloat/source/mulAddRecFN.v
+      - black-parrot/external/HardFloat/source/mulRecFN.v
+      - black-parrot/external/HardFloat/source/recFNToFN.v
+      - black-parrot/external/HardFloat/source/recFNToIN.v
+      - black-parrot/external/HardFloat/source/recFNToRecFN.v
+      - black-parrot/external/HardFloat/source/RISCV/HardFloat_specialize.v
+      - black-parrot/bp_common/src/include/bp_common_pkg.sv
+      - black-parrot/bp_common/src/include/bp_common_aviary_cfg_pkgdef.svh: {is_include_file: true}
+      - black-parrot/bp_common/src/include/bp_common_accelerator_pkgdef.svh: {is_include_file: true}
+      - black-parrot/bp_common/src/include/bp_common_aviary_defines.svh: {is_include_file: true}
+      - black-parrot/bp_common/src/include/bp_common_cache_engine_if.svh: {is_include_file: true}
+      - black-parrot/bp_common/src/include/bp_common_clint_pkgdef.svh: {is_include_file: true}
+      - black-parrot/bp_common/src/include/bp_common_log_defines.svh: {is_include_file: true}
+      - black-parrot/bp_common/src/include/bp_common_addr_defines.svh: {is_include_file: true}
+      - black-parrot/bp_common/src/include/bp_common_aviary_pkgdef.svh: {is_include_file: true}
+      - black-parrot/bp_common/src/include/bp_common_cache_engine_pkgdef.svh: {is_include_file: true}
+      - black-parrot/bp_common/src/include/bp_common_core_if.svh: {is_include_file: true}
+      - black-parrot/bp_common/src/include/bp_common_addr_pkgdef.svh: {is_include_file: true}
+      - black-parrot/bp_common/src/include/bp_common_bedrock_if.svh: {is_include_file: true}
+      - black-parrot/bp_common/src/include/bp_common_cache_pkgdef.svh: {is_include_file: true}
+      - black-parrot/bp_common/src/include/bp_common_core_pkgdef.svh: {is_include_file: true}
+      - black-parrot/bp_common/src/include/bp_common_rv64_csr_defines.svh: {is_include_file: true}
+      - black-parrot/bp_common/src/include/bp_common_bedrock_pkgdef.svh: {is_include_file: true}
+      - black-parrot/bp_common/src/include/bp_common_cfg_bus_defines.svh: {is_include_file: true}
+      - black-parrot/bp_common/src/include/bp_common_defines.svh: {is_include_file: true}
+      - black-parrot/bp_common/src/include/bp_common_rv64_instr_defines.svh: {is_include_file: true}
+      - black-parrot/bp_common/src/include/bp_common_aviary_custom_defines.svh: {is_include_file: true}
+      - black-parrot/bp_common/src/include/bp_common_bedrock_wormhole_defines.svh: {is_include_file: true}
+      - black-parrot/bp_common/src/include/bp_common_cfg_bus_pkgdef.svh: {is_include_file: true}
+      - black-parrot/bp_common/src/include/bp_common_host_pkgdef.svh: {is_include_file: true}
+      - black-parrot/bp_common/src/include/bp_common_rv64_pkgdef.svh: {is_include_file: true}
+      - black-parrot/bp_fe/src/include/bp_fe_pkg.sv
+      - black-parrot/bp_fe/src/include/bp_fe_decompress.svh: {is_include_file: true}
+      - black-parrot/bp_fe/src/include/bp_fe_defines.svh: {is_include_file: true}
+      - black-parrot/bp_fe/src/include/bp_fe_icache_defines.svh: {is_include_file: true}
+      - black-parrot/bp_fe/src/include/bp_fe_icache_pkgdef.svh: {is_include_file: true}
+      - black-parrot/bp_fe/src/include/bp_fe_pc_gen_pkgdef.svh: {is_include_file: true}
+      - black-parrot/bp_be/src/include/bp_be_pkg.sv
+      - black-parrot/bp_be/src/include/bp_be_ctl_pkgdef.svh: {is_include_file: true}
+      - black-parrot/bp_be/src/include/bp_be_dcache_defines.svh: {is_include_file: true}
+      - black-parrot/bp_be/src/include/bp_be_dcache_pkgdef.svh: {is_include_file: true}
+      - black-parrot/bp_be/src/include/bp_be_defines.svh: {is_include_file: true}
+      - black-parrot/bp_me/src/include/bp_me_pkg.sv
+      - black-parrot/bp_me/src/include/bp_me_cce_defines.svh: {is_include_file: true}
+      - black-parrot/bp_me/src/include/bp_me_cce_inst_defines.svh: {is_include_file: true}
+      - black-parrot/bp_me/src/include/bp_me_cce_inst_pkgdef.svh: {is_include_file: true}
+      - black-parrot/bp_me/src/include/bp_me_cce_pkgdef.svh: {is_include_file: true}
+      - black-parrot/bp_me/src/include/bp_me_defines.svh: {is_include_file: true}
+      - black-parrot/bp_top/src/include/bp_top_defines.svh: {is_include_file: true}
+      - black-parrot/bp_top/src/include/bp_top_pkg.sv
+      - black-parrot/external/basejump_stl/bsg_axi/bsg_axi_pkg.v
+      - black-parrot/external/basejump_stl/bsg_async/bsg_async_fifo.v
+      - black-parrot/external/basejump_stl/bsg_async/bsg_launch_sync_sync.v
+      - black-parrot/external/basejump_stl/bsg_async/bsg_sync_sync.v
+      - black-parrot/external/basejump_stl/bsg_async/bsg_async_ptr_gray.v
+      - black-parrot/bp_common/src/v/bsg_fifo_1r1w_rolly.sv
+      - black-parrot/bp_common/src/v/bsg_bus_pack.sv
+      - black-parrot/bp_common/src/v/bsg_serial_in_parallel_out_passthrough_last.v
+      - black-parrot/bp_common/src/v/bsg_parallel_in_serial_out_passthrough_dynamic_last.v
+      - black-parrot/bp_common/src/v/bsg_wormhole_stream_control.v
+      - black-parrot/bp_common/src/v/bp_mmu.sv
+      - black-parrot/bp_common/src/v/bp_pma.sv
+      - black-parrot/bp_common/src/v/bp_tlb.sv
+      - black-parrot/bp_be/src/v/bp_be_top.sv
+      - black-parrot/bp_be/src/v/bp_be_calculator/bp_be_calculator_top.sv
+      - black-parrot/bp_be/src/v/bp_be_calculator/bp_be_csr.sv
+      - black-parrot/bp_be/src/v/bp_be_calculator/bp_be_fp_to_reg.sv
+      - black-parrot/bp_be/src/v/bp_be_calculator/bp_be_nan_unbox.sv
+      - black-parrot/bp_be/src/v/bp_be_calculator/bp_be_pipe_int.sv
+      - black-parrot/bp_be/src/v/bp_be_calculator/bp_be_pipe_aux.sv
+      - black-parrot/bp_be/src/v/bp_be_calculator/bp_be_pipe_ctl.sv
+      - black-parrot/bp_be/src/v/bp_be_calculator/bp_be_pipe_fma.sv
+      - black-parrot/bp_be/src/v/bp_be_calculator/bp_be_pipe_long.sv
+      - black-parrot/bp_be/src/v/bp_be_calculator/bp_be_pipe_mem.sv
+      - black-parrot/bp_be/src/v/bp_be_calculator/bp_be_pipe_sys.sv
+      - black-parrot/bp_be/src/v/bp_be_calculator/bp_be_ptw.sv
+      - black-parrot/bp_be/src/v/bp_be_calculator/bp_be_reg_to_fp.sv
+      - black-parrot/bp_be/src/v/bp_be_checker/bp_be_cmd_queue.sv
+      - black-parrot/bp_be/src/v/bp_be_checker/bp_be_detector.sv
+      - black-parrot/bp_be/src/v/bp_be_checker/bp_be_director.sv
+      - black-parrot/bp_be/src/v/bp_be_checker/bp_be_instr_decoder.sv
+      - black-parrot/bp_be/src/v/bp_be_checker/bp_be_issue_queue.sv
+      - black-parrot/bp_be/src/v/bp_be_checker/bp_be_regfile.sv
+      - black-parrot/bp_be/src/v/bp_be_checker/bp_be_scheduler.sv
+      - black-parrot/bp_be/src/v/bp_be_checker/bp_be_scoreboard.sv
+      - black-parrot/bp_be/src/v/bp_be_dcache/bp_be_dcache.sv
+      - black-parrot/bp_be/src/v/bp_be_dcache/bp_be_dcache_decoder.sv
+      - black-parrot/bp_be/src/v/bp_be_dcache/bp_be_dcache_wbuf.sv
+      - black-parrot/bp_fe/src/v/bp_fe_ras.sv
+      - black-parrot/bp_fe/src/v/bp_fe_bht.sv
+      - black-parrot/bp_fe/src/v/bp_fe_btb.sv
+      - black-parrot/bp_fe/src/v/bp_fe_controller.sv
+      - black-parrot/bp_fe/src/v/bp_fe_icache.sv
+      - black-parrot/bp_fe/src/v/bp_fe_instr_scan.sv
+      - black-parrot/bp_fe/src/v/bp_fe_pc_gen.sv
+      - black-parrot/bp_fe/src/v/bp_fe_realigner.sv
+      - black-parrot/bp_fe/src/v/bp_fe_top.sv
+      - black-parrot/bp_me/src/v/lce/bp_lce.sv
+      - black-parrot/bp_me/src/v/lce/bp_lce_req.sv
+      - black-parrot/bp_me/src/v/lce/bp_lce_cmd.sv
+      - black-parrot/bp_me/src/v/dev/bp_me_bedrock_register.sv
+      - black-parrot/bp_me/src/v/dev/bp_me_cce_to_cache.sv
+      - black-parrot/bp_me/src/v/dev/bp_me_dram_hash_decode.sv
+      - black-parrot/bp_me/src/v/dev/bp_me_dram_hash_encode.sv
+      - black-parrot/bp_me/src/v/dev/bp_me_cache_slice.sv
+      - black-parrot/bp_me/src/v/dev/bp_me_cfg_slice.sv
+      - black-parrot/bp_me/src/v/dev/bp_me_clint_slice.sv
+      - black-parrot/bp_me/src/v/dev/bp_me_loopback.sv
+      - black-parrot/bp_me/src/v/cce/bp_cce.sv
+      - black-parrot/bp_me/src/v/cce/bp_cce_alu.sv
+      - black-parrot/bp_me/src/v/cce/bp_cce_arbitrate.sv
+      - black-parrot/bp_me/src/v/cce/bp_cce_branch.sv
+      - black-parrot/bp_me/src/v/cce/bp_cce_dir.sv
+      - black-parrot/bp_me/src/v/cce/bp_cce_dir_lru_extract.sv
+      - black-parrot/bp_me/src/v/cce/bp_cce_dir_segment.sv
+      - black-parrot/bp_me/src/v/cce/bp_cce_dir_tag_checker.sv
+      - black-parrot/bp_me/src/v/cce/bp_cce_gad.sv
+      - black-parrot/bp_me/src/v/cce/bp_cce_inst_decode.sv
+      - black-parrot/bp_me/src/v/cce/bp_cce_inst_predecode.sv
+      - black-parrot/bp_me/src/v/cce/bp_cce_inst_ram.sv
+      - black-parrot/bp_me/src/v/cce/bp_cce_inst_stall.sv
+      - black-parrot/bp_me/src/v/cce/bp_cce_msg.sv
+      - black-parrot/bp_me/src/v/cce/bp_cce_pending_bits.sv
+      - black-parrot/bp_me/src/v/cce/bp_cce_pma.sv
+      - black-parrot/bp_me/src/v/cce/bp_cce_reg.sv
+      - black-parrot/bp_me/src/v/cce/bp_cce_spec_bits.sv
+      - black-parrot/bp_me/src/v/cce/bp_cce_src_sel.sv
+      - black-parrot/bp_me/src/v/cce/bp_io_cce.sv
+      - black-parrot/bp_me/src/v/cce/bp_cce_fsm.sv
+      - black-parrot/bp_me/src/v/cce/bp_cce_wrapper.sv
+      - black-parrot/bp_me/src/v/cce/bp_bedrock_size_to_len.sv
+      - black-parrot/bp_me/src/v/cce/bp_uce.sv
+      - black-parrot/bp_me/src/v/network/bp_me_addr_to_cce_id.sv
+      - black-parrot/bp_me/src/v/network/bp_me_cce_id_to_cord.sv
+      - black-parrot/bp_me/src/v/network/bp_me_cord_to_id.sv
+      - black-parrot/bp_me/src/v/network/bp_me_lce_id_to_cord.sv
+      - black-parrot/bp_me/src/v/network/bp_me_wormhole_header_encode.sv
+      - black-parrot/bp_me/src/v/network/bp_me_burst_gearbox.sv
+      - black-parrot/bp_me/src/v/network/bp_me_wormhole_to_burst.sv
+      - black-parrot/bp_me/src/v/network/bp_me_burst_to_wormhole.sv
+      - black-parrot/bp_me/src/v/network/bp_me_xbar_burst.sv
+      - black-parrot/bp_me/src/v/network/bp_me_xbar_stream.sv
+      - black-parrot/bp_me/src/v/network/bp_me_stream_to_burst.sv
+      - black-parrot/bp_me/src/v/network/bp_me_burst_to_stream.sv
+      - black-parrot/bp_me/src/v/network/bp_me_stream_pump_in.sv
+      - black-parrot/bp_me/src/v/network/bp_me_stream_pump_out.sv
+      - black-parrot/bp_me/src/v/network/bp_me_stream_fifo.sv
+      - black-parrot/bp_me/src/v/network/bp_me_stream_pump_control.sv
+      - black-parrot/bp_top/src/v/bp_nd_socket.sv
+      - black-parrot/bp_top/src/v/bp_cacc_vdp.sv
+      - black-parrot/bp_top/src/v/bp_cacc_tile.sv
+      - black-parrot/bp_top/src/v/bp_cacc_tile_node.sv
+      - black-parrot/bp_top/src/v/bp_cacc_complex.sv
+      - black-parrot/bp_top/src/v/bp_sacc_vdp.sv
+      - black-parrot/bp_top/src/v/bp_sacc_scratchpad.sv
+      - black-parrot/bp_top/src/v/bp_sacc_tile.sv
+      - black-parrot/bp_top/src/v/bp_sacc_tile_node.sv
+      - black-parrot/bp_top/src/v/bp_sacc_complex.sv
+      - black-parrot/bp_top/src/v/bp_core.sv
+      - black-parrot/bp_top/src/v/bp_core_lite.sv
+      - black-parrot/bp_top/src/v/bp_core_minimal.sv
+      - black-parrot/bp_top/src/v/bp_core_complex.sv
+      - black-parrot/bp_top/src/v/bp_l2e_tile.sv
+      - black-parrot/bp_top/src/v/bp_l2e_tile_node.sv
+      - black-parrot/bp_top/src/v/bp_io_complex.sv
+      - black-parrot/bp_top/src/v/bp_io_tile.sv
+      - black-parrot/bp_top/src/v/bp_io_tile_node.sv
+      - black-parrot/bp_top/src/v/bp_mem_complex.sv
+      - black-parrot/bp_top/src/v/bp_multicore.sv
+      - black-parrot/bp_top/src/v/bp_unicore.sv
+      - black-parrot/bp_top/src/v/bp_unicore_lite.sv
+      - black-parrot/bp_top/src/v/bp_core_tile.sv
+      - black-parrot/bp_top/src/v/bp_core_tile_node.sv
+      - black-parrot/bp_common/src/v/bsg_async_noc_link.sv
+      - black-parrot/bp_common/src/v/bsg_deff_reset.v
+      - black-parrot/bp_common/src/v/bsg_dff_sync_read.v
+      - black-parrot/bp_common/src/v/bsg_rom_param.v
+      - black-parrot/bp_common/src/v/bsg_edge_extend.v
+      - black-parrot/external/basejump_stl/bsg_tag/bsg_tag.vh: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_tag/bsg_tag_client_unsync.v
+      - black-parrot/external/basejump_stl/bsg_tag/bsg_tag_client.v
+      - black-parrot/external/basejump_stl/bsg_tag/bsg_tag_master_decentralized.v
+      - black-parrot/external/basejump_stl/bsg_tag/bsg_tag_master.v
+      - black-parrot/external/basejump_stl/bsg_tag/bsg_tag_trace_replay.v
+      - black-parrot/external/basejump_stl/bsg_fsb/bsg_fsb_node_trace_replay.v
+      - black-parrot/external/basejump_stl/bsg_tag/bsg_tag_trace_replay.v
+      - black-parrot/bp_me/test/common/bp_me_nonsynth_pkg.sv
+      - black-parrot/bp_me/test/common/bp_me_nonsynth_cce_tracer.sv
+      - black-parrot/bp_me/test/common/bp_me_nonsynth_cce_inst_tracer.sv
+      - black-parrot/bp_me/test/common/bp_me_nonsynth_cce_pending_tracer.sv
+      - black-parrot/bp_me/test/common/bp_me_nonsynth_cce_perf.sv
+      - black-parrot/bp_me/test/common/bp_me_nonsynth_dev_tracer.sv
+      - black-parrot/bp_me/test/common/bp_me_nonsynth_lce_tracer.sv
+      - black-parrot/bp_be/test/common/bp_be_nonsynth_dcache_tracer.sv
+      - black-parrot/bp_fe/test/common/bp_fe_nonsynth_icache_tracer.sv
+      - black-parrot/bp_fe/test/common/bp_fe_nonsynth_pc_gen_tracer.sv
+      - black-parrot/bp_top/test/common/bp_nonsynth_watchdog.sv
+      - black-parrot/bp_top/test/common/bp_nonsynth_vm_tracer.sv
+      - black-parrot/bp_top/test/common/bp_nonsynth_cosim.sv
+      - black-parrot/bp_top/test/common/bp_nonsynth_host.sv
+      - black-parrot/bp_top/test/common/bp_nonsynth_if_verif.sv
+      - black-parrot/bp_top/test/common/bp_nonsynth_cache_tracer.sv
+      - black-parrot/bp_top/test/common/bp_nonsynth_nbf_loader.sv
+      - black-parrot/bp_top/test/common/bp_nonsynth_core_profiler.sv
+      - black-parrot/bp_top/test/common/bp_nonsynth_pc_profiler.sv
+      - black-parrot/bp_top/test/common/bp_nonsynth_branch_profiler.sv
+      - black-parrot/bp_top/test/common/bp_nonsynth_perf.sv
+      - black-parrot/external/basejump_stl/bsg_clk_gen/bsg_clk_gen_osc.v
+      - black-parrot/external/basejump_stl/bsg_clk_gen/bsg_clk_gen.v
+      - black-parrot/external/basejump_stl/bsg_clk_gen/bsg_dly_line.v
+      - black-parrot/external/basejump_stl/bsg_clk_gen/bsg_dram_clk_gen.v
+      - black-parrot/external/basejump_stl/bsg_clk_gen/bsg_edge_balanced_mux4.v
+      - black-parrot/external/basejump_stl/bsg_clk_gen/bsg_nonsynth_clk_watcher.v
+      - black-parrot/external/basejump_stl/testing/bsg_dmc/lpddr_verilog_model/subtest.vh: {is_include_file: true}
+      - black-parrot/external/basejump_stl/testing/bsg_dmc/lpddr_verilog_model/1024Mb_mobile_ddr_parameters.vh: {is_include_file: true}
+      - black-parrot/external/basejump_stl/testing/bsg_dmc/lpddr_verilog_model/2048Mb_mobile_ddr_parameters.vh: {is_include_file: true}
+      - black-parrot/external/basejump_stl/testing/bsg_dmc/lpddr_verilog_model/512Mb_mobile_ddr_parameters.vh: {is_include_file: true}
+      - black-parrot/external/basejump_stl/testing/bsg_dmc/lpddr_verilog_model/mobile_ddr.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/testing/bsg_dmc/lpddr_verilog_model/tb.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/testing/bsg_dmc/lpddr_verilog_model/128Mb_mobile_ddr_parameters.vh: {is_include_file: true}
+      - black-parrot/external/basejump_stl/testing/bsg_dmc/lpddr_verilog_model/256Mb_mobile_ddr_parameters.vh: {is_include_file: true}
+      - black-parrot/external/basejump_stl/testing/bsg_dmc/lpddr_verilog_model/mobile_ddr_mcp.v: {is_include_file: true}
+      - black-parrot/bp_me/test/common/bp_nonsynth_dram.sv
+      - black-parrot/bp_top/test/tb/bp_tethered/wrapper.sv
+      - black-parrot/bp_top/test/tb/bp_tethered/testbench.sv
+    file_type: systemVerilogSource , verilogSource
+
+  test_cpp:
+    files:
+      - black-parrot/external/basejump_stl/bsg_test/bsg_nonsynth_dpi_clock_gen.hpp
+      - black-parrot/bp_top/test/tb/bp_tethered/test_bp.cpp
+    file_type: cppSource , hppSource
+
+targets:
+  default: &default
+    filesets: [black_parrot , test_cpp]
+  sim:
+    <<: *default
+    default_tool: verilator
+    filesets: [black_parrot , test_cpp]
+    parameters:
+        - VM_TRACE_FST
+        - VM_COVERAGE
+    tools:
+      verilator:
+        verilator_options: [-Wno-UNUSED , -Wno-DECLFILENAME , -Wno-PINCONNECTEMPTY , -Wno-PINMISSING , -Wno-MODDUP , -Wno-TIMESCALEMOD , -Wno-UNOPTFLAT , -Wno-WIDTH , -Wno-LITENDIAN , -Wno-USERERROR , -Wno-CMPCONST , -Wno-UNSIGNED , -Wno-CASEINCOMPLETE , -Wno-WIDTHCONCAT]
+    toplevel: testbench
+parameters:
+  VM_TRACE_FST:
+    datatype: int
+    paramtype: plusarg
+  VM_COVERAGE:
+    datatype: int
+    paramtype: plusarg
