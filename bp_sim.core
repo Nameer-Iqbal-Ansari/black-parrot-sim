@@ -17,11 +17,11 @@ filesets:
       - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_dma_to_wormhole.v: {is_include_file: true}
       - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_non_blocking_stat_mem.v: {is_include_file: true}
       - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_to_axi_tx.v: {is_include_file: true}
+      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache.vh: {is_include_file: true}
       - black-parrot/external/basejump_stl/bsg_cache/bsg_cache.v: {is_include_file: true}
       - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_dma.v: {is_include_file: true}
       - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_non_blocking_tag_mem.v: {is_include_file: true}
       - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_to_axi.v: {is_include_file: true}
-      - black-parrot/external/basejump_stl/bsg_cache/bsg_cache.vh: {is_include_file: true}
       - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_miss.v: {is_include_file: true}
       - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_non_blocking_tl_stage.v: {is_include_file: true}
       - black-parrot/external/basejump_stl/bsg_cache/bsg_cache_to_dram_ctrl_rx.v: {is_include_file: true}
@@ -553,6 +553,7 @@ filesets:
       - black-parrot/external/basejump_stl/testing/bsg_dmc/lpddr_verilog_model/256Mb_mobile_ddr_parameters.vh: {is_include_file: true}
       - black-parrot/external/basejump_stl/testing/bsg_dmc/lpddr_verilog_model/mobile_ddr_mcp.v: {is_include_file: true}
       - black-parrot/bp_me/test/common/bp_nonsynth_dram.sv
+      - black-parrot/bp_top/src/v/bp_io_link_to_lce.sv
       - black-parrot/bp_top/test/tb/bp_tethered/wrapper.sv
       - black-parrot/bp_top/test/tb/bp_tethered/testbench.sv
     file_type: systemVerilogSource , verilogSource
@@ -573,14 +574,22 @@ targets:
     parameters:
         - VM_TRACE_FST
         - VM_COVERAGE
+        - BP_CFG_FLOWVAR
+        - BP_DRAM_FLOWVAR
     tools:
       verilator:
-        verilator_options: [-Wno-UNUSED , -Wno-DECLFILENAME , -Wno-PINCONNECTEMPTY , -Wno-PINMISSING , -Wno-MODDUP , -Wno-TIMESCALEMOD , -Wno-UNOPTFLAT , -Wno-WIDTH , -Wno-LITENDIAN , -Wno-USERERROR , -Wno-CMPCONST , -Wno-UNSIGNED , -Wno-CASEINCOMPLETE , -Wno-WIDTHCONCAT]
+        verilator_options: [-Wno-UNUSED , -Wno-DECLFILENAME , -Wno-PINCONNECTEMPTY , -Wno-PINMISSING , -Wno-MODDUP , -Wno-UNOPTFLAT , -Wno-WIDTH , -Wno-LITENDIAN , -Wno-USERERROR , -Wno-CMPCONST , -Wno-UNSIGNED , -Wno-CASEINCOMPLETE , -Wno-WIDTHCONCAT , -Wno-TIMESCALEMOD , -Wno-STMTDLY]
     toplevel: testbench
 parameters:
   VM_TRACE_FST:
     datatype: int
     paramtype: plusarg
   VM_COVERAGE:
+    datatype: int
+    paramtype: plusarg
+  BP_CFG_FLOWVAR:
+    datatype: int
+    paramtype: plusarg
+  BP_DRAM_FLOWVAR:
     datatype: int
     paramtype: plusarg
