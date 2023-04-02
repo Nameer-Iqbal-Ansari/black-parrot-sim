@@ -578,7 +578,7 @@ targets:
         - BP_DRAM_FLOWVAR
     tools:
       verilator:
-        verilator_options: [-Wno-UNUSED , -Wno-DECLFILENAME , -Wno-PINCONNECTEMPTY , -Wno-PINMISSING , -Wno-MODDUP , -Wno-UNOPTFLAT , -Wno-WIDTH , -Wno-LITENDIAN , -Wno-USERERROR , -Wno-CMPCONST , -Wno-UNSIGNED , -Wno-CASEINCOMPLETE , -Wno-WIDTHCONCAT , -Wno-TIMESCALEMOD , -Wno-STMTDLY]
+        verilator_options: [--cc , -O3 , --x-assign fast , --x-initial fast , --threads 1 , --build , --exe , -o simsc , --Wno-fatal , --Wno-lint , --Wno-style , --Wno-widthconcat , --Wno-unoptflat , -CFLAGS , -std=c++14 , --trace-fst , --trace-structs , --trace-depth 15 , --coverage-line , --coverage-toggle , -Wno-UNUSED , -Wno-DECLFILENAME , -Wno-PINCONNECTEMPTY , -Wno-PINMISSING , -Wno-MODDUP , -Wno-WIDTH , -Wno-LITENDIAN , -Wno-USERERROR , -Wno-CMPCONST , -Wno-UNSIGNED , -Wno-CASEINCOMPLETE , -Wno-TIMESCALEMOD , -Wno-STMTDLY]
     toplevel: testbench
 parameters:
   VM_TRACE_FST:
